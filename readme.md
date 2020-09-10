@@ -42,8 +42,50 @@ I have combined all these modifications and making it available as a
 repository with the hope that people can improve on this and learn
 from my experience. 
 
-Some of the screenshots are shown below
+You can clone this repository into the source folder of your catkin
+workspace and build it using `catkin_make` command. 
+
+```
+$ cd catkin_ws/src
+$ git clone https://github.com/swagatk/franka_gazebo_melodic.git
+$ cd ..
+$ catkin_make
+$ source devel/setup.bash
+```
+It should compile without any error.
+Now you should execute the following command to launch Gazebo and Rviz
+windows together:
+
+```
+$ roslaunch franka_description gazebo.launch
+```
+You will be able to see the following two screens:
+
+* Gazebo Window
+
 ![Gazebo Screenshot](./image/gazebo_screen.png)
+As you can see, the robot arm falls vibrates and falls down on the
+  ground.
+ 
+ * Rviz window
+![Rviz Screenshot](./image/rviz_screen.png)
+  The rviz screen looks OK. 
+
+I notice the following two errors on the terminal when I execute the
+above command - one is about the planner request and the other is
+about action client. 
+
+```
+[ERROR] [1599737909.449017002]: Exception while loading planning adapter plugin 'default_planner_request_adapters/ResolveConstraintFrames': According to the loaded plugin descriptions the class default_planner_request_adapters/ResolveConstraintFrames with base class type planning_request_adapter::PlanningRequestAdapter does not exist. Declared types are  default_planner_request_adapters/AddIterativeSplineParameterization default_planner_request_adapters/AddTimeOptimalParameterization default_planner_request_adapters/AddTimeParameterization default_planner_request_adapters/Empty default_planner_request_adapters/FixStartStateBounds default_planner_request_adapters/FixStartStateCollision default_planner_request_adapters/FixStartStatePathConstraints default_planner_request_adapters/FixWorkspaceBounds
+```
+```
+[ERROR] [1599737932.109590269, 17.002000000]: Action client not connected: panda_arm_controller/follow_joint_trajectory
+```
+
+I am leaving this here at the moment. I will try to come back after I
+try the whole thing out with the UR robot model which is hopefully
+more well documented. In the mean time, please use this information to
+improve on this.
 
 
 
