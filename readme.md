@@ -43,7 +43,7 @@ repository with the hope that people can improve on this and learn
 from my experience. 
 
 Some of the screenshots are shown below
-![image](gazebo_screen.png)
+![Gazebo Screenshot](./image/gazebo_screen.png)
 
 
 
